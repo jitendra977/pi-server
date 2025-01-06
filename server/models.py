@@ -12,10 +12,10 @@ class User(models.Model):
 
 class LED(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    gpio = models.PositiveIntegerField(default=0)
-    status = models.BooleanField(default=False)
+    led_pin = models.PositiveIntegerField(default=0)  # GPIO pin for controlling the LED
+    status = models.BooleanField(default=False)  # LED status (on/off)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    button_pin = models.PositiveIntegerField(default=0)  # GPIO pin for the button
 
     def __str__(self):
         return self.name
-
