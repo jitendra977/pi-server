@@ -9,10 +9,10 @@
             "server": "192.168.0.59",
             "port": 3306,
             "driver": "MariaDB",
-            "name": "server",
+            "name": "Pi Server",
             "database": "server_db",
-            "username": "root",
-            "askForPassword": true
+            "username": "jitu",
+            "password": "jitu"
         }
     ]
 }

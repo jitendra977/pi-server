@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import User, LED
+from .models import SensorData, User, LED
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -11,3 +11,10 @@ class LEDSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = LED
         fields = '__all__'
+
+class SensorDataSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = SensorData
+        fields = '__all__'
+
+        

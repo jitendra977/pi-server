@@ -19,3 +19,23 @@ class LED(models.Model):
 
     def __str__(self):
         return self.name
+
+class SensorData(models.Model):
+    SENSOR_TYPES = [
+        ('temperature', 'Temperature'),
+        ('humidity', 'Humidity'),
+        ('motion', 'Motion'),
+        ('light', 'Light'),
+        # Add more sensor types as needed
+    ]
+    
+    sensor_name = models.CharField(max_length=200)
+    sensor_type = models.CharField(max_length=50, choices=SENSOR_TYPES)
+    value = models.FloatField()
+    unit = models.CharField(max_length=50)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    device = models.ForeignKey(LED, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.sensor_name} - {self.value} {self.unit} ({self.sensor_type}) at {self.timestamp}"
