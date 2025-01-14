@@ -1,11 +1,10 @@
-from gpiozero import Button
-from signal import pause
+from gpiozero import LED
+from time import sleep
 
-def say_hello():
-    print("hello im pressed how are you ")
+red = LED(26)
 
-button = Button(21)
-
-button.when_pressed = say_hello
-
-pause()
+while True:
+    red.on()
+    sleep(1)
+    red.off()
+    sleep(1)
